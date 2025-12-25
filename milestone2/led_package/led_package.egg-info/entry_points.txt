@@ -1,0 +1,2 @@
+[console_scripts]
+hello_node = led_package.main:main
