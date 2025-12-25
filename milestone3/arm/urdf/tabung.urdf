@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+<robot name="tabung">
+    <material name="pink">
+        <color rgba="0.902 0.11 0.7921 1" />
+    </material>
+
+    <material name="hijau">
+        <color rgba="0.067 0.922 0.208 1" />
+    </material>
+
+    <material name="kuning">
+        <color rgba="1 1 0 1" />
+    </material>
+
+    <material name="biru">
+        <color rgba="0.047 0.722 0.961 1" />
+    </material>
+
+    <link name="base_link">
+        <visual>
+            <origin xyz="0 0 4.5" rpy="0 0 0"/>
+
+            <geometry>
+                <cylinder length="9.0" radius="0.2" />
+            </geometry>
+
+            <material name="biru"/>
+        </visual>
+    </link>
+
+    <link name="tabung1">
+        <visual>
+            <origin xyz="0 0 3.5" rpy="0 0 0"/>
+
+            <geometry>
+                <cylinder length="7.0" radius="0.2" />
+            </geometry>
+
+            <material name="kuning"/>
+        </visual>
+    </link>
+
+    <link name="tabung2">
+        <visual>
+            <origin xyz="0 0 2.5" rpy="0 0 0"/>
+
+            <geometry>
+                <cylinder length="5.0" radius="0.2" />
+            </geometry>
+
+            <material name="hijau"/>
+        </visual>
+    </link>
+
+    <link name="tabung3">
+        <visual>
+            <origin xyz="0 0 1.5" rpy="0 0 0"/>
+            
+            <geometry>
+                <cylinder length="3.0" radius="0.2" />
+            </geometry>
+
+            <material name="pink"/>
+        </visual>
+    </link>
+
+    <joint name="base_to_tabung1" type="revolute">
+        <parent link="base_link" />
+        <child link="tabung1" />
+        <origin xyz="0 0 9.0" />
+        <axis xyz="1 0 0"/>
+        <limit effort="1000.0" lower="-1.57079632679" upper="1.57079632679" velocity="0.5"/>
+    </joint>
+
+    <joint name="tabung1_to_tabung2" type="revolute">
+        <parent link="tabung1" />
+        <child link="tabung2" />
+        <origin xyz="0 0 7.0" />
+        <axis xyz="1 0 0"/>
+        <limit effort="1000.0" lower="-1.57079632679" upper="1.57079632679" velocity="0.5"/>
+    </joint>
+
+    <joint name="tabung2_to_tabung3" type="revolute">
+        <parent link="tabung2" />
+        <child link="tabung3" />
+        <origin xyz="0 0 5.0" />
+        <axis xyz="1 0 0"/>
+        <limit effort="1000.0" lower="-1.57079632679" upper="1.57079632679" velocity="0.5"/>
+    </joint>
+
+</robot>
