@@ -30,6 +30,9 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'fk_node = arm.forward_kinematics:main',
+            'ik_node = arm.inverse_kinematics:main',
+            'ee_subscribe = arm.ee_subscribe:main',
         ],
     },
 )

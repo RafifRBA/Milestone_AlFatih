@@ -10,7 +10,7 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
     package = FindPackageShare('arm')
-    urdf_path = PathJoinSubstitution([package, 'urdf', 'tabung.urdf'])
+    urdf_path = PathJoinSubstitution([package, 'urdf', 'tabung_advanced.urdf'])
     rviz_config_path = PathJoinSubstitution([package, 'config', 'rviz_config.rviz'])
 
     # joint state publisher node
