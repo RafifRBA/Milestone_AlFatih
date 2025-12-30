@@ -33,6 +33,8 @@ setup(
             'fk_node = arm.forward_kinematics:main',
             'ik_node = arm.inverse_kinematics:main',
             'ee_subscribe = arm.ee_subscribe:main',
+            'ik_adv_node = arm.ee_subscribe_adv:main',
+            'ik_ujang_node = arm.ee_subscribe_ujang:main',
         ],
     },
 )
