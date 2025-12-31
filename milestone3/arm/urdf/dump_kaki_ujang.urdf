@@ -30,11 +30,20 @@
         </visual>
     </link>
 
-    <link name="coxa_link">
+    <!-- <link name="coxa_link">
         <visual>
             <origin xyz="0.075 0 -0.1" rpy="0 0 0"/>
             <geometry>
                 <box size="0.35 0.2 0.2" />
+            </geometry>
+            <material name="biru"/>
+        </visual>
+    </link> -->
+    <link name="coxa_link">
+        <visual>
+            <origin xyz="0.125 0 0" rpy="0 1.57079632679 0" />
+            <geometry>
+                <cylinder radius="0.1" length="0.25" />
             </geometry>
             <material name="biru"/>
         </visual>
@@ -52,7 +61,7 @@
 
     <link name="tibia_link">
         <visual>
-            <origin xyz="0.1 0 -0.25745" rpy="0 0 0" />
+            <origin xyz="0 0 -0.35745" rpy="0 0 0" />
             <geometry>
                 <cylinder radius="0.1" length="0.7149" />
             </geometry>
@@ -75,8 +84,8 @@
      <joint name="joint_fermur" type="revolute">
         <parent link="coxa_link" />
         <child link="fermur_link" />
-        <origin xyz="0.25 0 -0.1" rpy="0 0 0" />
-        <axis xyz="0 1 0" />
+        <origin xyz="0.25 0 0" rpy="0 0 0" />
+        <axis xyz="0 -1 0" />
        <limit effort="1000.0" lower="-1.57079632679" upper="1.57079632679" velocity="0.5"/>
      </joint>
 
@@ -84,13 +93,13 @@
         <parent link="fermur_link" />
         <child link="tibia_link" />
         <origin xyz="0.55 0 0" rpy="0 0 0" />
-        <axis xyz="0 1 0" />
+        <axis xyz="0 -1 0" />
        <limit effort="1000.0" lower="-1.57079632679" upper="1.57079632679" velocity="0.5"/>
      </joint>
 
      <joint name="joint_end_effector" type="fixed">
         <parent link="tibia_link" />
         <child link="end_effector" />
-        <origin xyz="0.1 0 -0.6149" rpy="0 0 0" />
+        <origin xyz="0 0 -0.7149" rpy="0 0 0" />
      </joint>
 </robot>
