@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<robot name="arm" xmlns:xacro="https://www.ros.org/wiki/xacro">
+    <xacro:include filename="$(find arm)/urdf/ujang.description.xacro" />
+    <xacro:include filename="$(find arm)/urdf/ujang.ros2_control.xacro" />
+
+    <xacro:ujang_description />
+    <xacro:ujang_ros2_control name="ujang_ros2_control" />
+</robot>

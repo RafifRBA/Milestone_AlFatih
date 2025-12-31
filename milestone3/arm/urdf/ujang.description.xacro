@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!-- Harusnya: 0,045; 0,025; 0,055; 0,07149 -->
+ <!-- Kekecilan kubuat 0,45; 0,25; 0,55; 0,7149 -->
+  
+<robot xmlns:xacro="https://www.ros.org/wiki/xacro">
+   <xacro:macro name="ujang_description" >
+
+        <material name="pink">
+            <color rgba="0.902 0.11 0.7921 0.5" />
+        </material>
+
+        <material name="hijau">
+            <color rgba="0.067 0.922 0.208 0.5" />
+        </material>
+
+        <material name="kuning">
+            <color rgba="1 1 0 0.5" />
+        </material>
+
+        <material name="biru">
+            <color rgba="0.047 0.722 0.961 0.5" />
+        </material>
+
+        <!-- Link Area -->
+        <link name="base_link">
+            <visual>
+                <origin xyz="0 0 -0.225" rpy="0 0 0" />
+                <geometry>
+                    <cylinder radius="0.1" length="0.45" />
+                </geometry>
+                <material name="pink"/>
+            </visual>
+        </link>
+        
+        <link name="coxa_link">
+            <visual>
+                <origin xyz="0.125 0 0" rpy="0 1.57079632679 0" />
+                <geometry>
+                    <cylinder radius="0.1" length="0.25" />
+                </geometry>
+                <material name="biru"/>
+            </visual>
+        </link>
+
+        <link name="fermur_link">
+            <visual>
+                <origin xyz="0.275 0 0" rpy="0 1.57079632679 0" />
+                <geometry>
+                    <cylinder radius="0.1" length="0.55" />
+                </geometry>
+                <material name="kuning"/>
+            </visual>
+        </link>
+
+        <link name="tibia_link">
+            <visual>
+                <origin xyz="0 0 -0.35745" rpy="0 0 0" />
+                <geometry>
+                    <cylinder radius="0.1" length="0.7149" />
+                </geometry>
+                <material name="hijau"/>
+            </visual>
+        </link>
+
+        <link name="end_effector"/>
+
+        <!-- Joint Area -->
+        <joint name="joint_coxa" type="revolute">
+            <parent link="base_link" />
+            <child link="coxa_link" />
+            <origin xyz="0 0 -0.45" rpy="0 0 0" />
+            <axis xyz="0 0 1" />
+        <limit effort="1000.0" lower="-1.57079632679" upper="1.57079632679" velocity="0.5"/>
+        </joint>
+
+
+        <joint name="joint_fermur" type="revolute">
+            <parent link="coxa_link" />
+            <child link="fermur_link" />
+            <origin xyz="0.25 0 0" rpy="0 0 0" />
+            <axis xyz="0 -1 0" />
+        <limit effort="1000.0" lower="-1.57079632679" upper="1.57079632679" velocity="0.5"/>
+        </joint>
+
+        <joint name="joint_tibia" type="revolute">
+            <parent link="fermur_link" />
+            <child link="tibia_link" />
+            <origin xyz="0.55 0 0" rpy="0 0 0" />
+            <axis xyz="0 -1 0" />
+        <limit effort="1000.0" lower="-1.57079632679" upper="1.57079632679" velocity="0.5"/>
+        </joint>
+
+        <joint name="joint_end_effector" type="fixed">
+            <parent link="tibia_link" />
+            <child link="end_effector" />
+            <origin xyz="0 0 -0.7149" rpy="0 0 0" />
+        </joint>
+   </xacro:macro>
+</robot>
