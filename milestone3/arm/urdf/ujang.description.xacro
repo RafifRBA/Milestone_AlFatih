@@ -42,7 +42,7 @@
             </visual>
         </link>
 
-        <link name="fermur_link">
+        <link name="femur_link">
             <visual>
                 <origin xyz="0.275 0 0" rpy="0 1.57079632679 0" />
                 <geometry>
@@ -74,16 +74,16 @@
         </joint>
 
 
-        <joint name="joint_fermur" type="revolute">
+        <joint name="joint_femur" type="revolute">
             <parent link="coxa_link" />
-            <child link="fermur_link" />
+            <child link="femur_link" />
             <origin xyz="0.25 0 0" rpy="0 0 0" />
             <axis xyz="0 -1 0" />
         <limit effort="1000.0" lower="-1.57079632679" upper="1.57079632679" velocity="0.5"/>
         </joint>
 
         <joint name="joint_tibia" type="revolute">
-            <parent link="fermur_link" />
+            <parent link="femur_link" />
             <child link="tibia_link" />
             <origin xyz="0.55 0 0" rpy="0 0 0" />
             <axis xyz="0 -1 0" />
