@@ -16,9 +16,9 @@ class EndEffectorListener(Node):
         self.timer = self.create_timer(1.0, self.on_timer)
 
         # Buat publish hasil IK
-        # self.publisher = self.create_publisher(
-        #     JointState, '/calculate_theta', 10
-        # )
+        self.publisher = self.create_publisher(
+            JointState, '/theta_IK', 10
+        )
 
         self.get_logger().info('End Effector Listener Node started!')
 

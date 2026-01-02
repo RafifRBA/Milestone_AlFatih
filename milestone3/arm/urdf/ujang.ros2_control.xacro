@@ -1,44 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <robot xmlns:xacro="https://www.ros.org/wiki/xacro">
-
-  <xacro:arg name="use_mock_components" default="true" />
 
   <xacro:macro name="ujang_ros2_control" params="name">
 
-    <ros2_control name="${name}" type="system">
-      <xacro:if value="$(arg use_mock_components)">
-        <hardware>
-          <plugin>mock_components/GenericSystem</plugin>
-          <param name="calculate_dynamics">false</param>
-          <param name="custom_interface_with_following_offset"></param>
-          <param name="disable_commands">false</param>
-          <param name="mock_gpio_commands">false</param>
-          <param name="mock_sensor_commands">false</param>
-          <param name="position_state_following_offset">0.0</param>
-        </hardware>
-      </xacro:if>
+    <ros2_control name="ujang_ros2_control" type="system">
 
-      <xacro:unless value="$(arg use_mock_components)">
-        <hardware>
-          <plugin>cobot_hardware/CobotHardware</plugin>
-          <param name="port_name">/dev/esp32</param>  <!-- use udev rules! -->
-          <!-- <param name="baud_rate">115200</param> --> 
-        </hardware>
-      </xacro:unless>
+      <hardware>
+        <plugin>mock_components/GenericSystem</plugin>
+        <!-- <param name="calculate_dynamics">false</param>
+        <param name="custom_interface_with_following_offset"></param>
+        <param name="disable_commands">false</param>
+        <param name="mock_gpio_commands">false</param>
+        <param name="mock_sensor_commands">false</param>
+        <param name="position_state_following_offset">0.0</param> -->
+      </hardware>
 
-      <!-- joint -->
       <joint name="joint_coxa">
-        <param name="id">0</param>
         <command_interface name="position" />
         <state_interface name="position" />
       </joint>
       <joint name="joint_femur">
-        <param name="id">1</param>
         <command_interface name="position" />
         <state_interface name="position" />
       </joint>
       <joint name="joint_tibia">
-        <param name="id">2</param>
         <command_interface name="position" />
         <state_interface name="position" />
       </joint>
