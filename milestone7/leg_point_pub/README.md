@@ -1,0 +1,1 @@
+Mengimplementasikan bezier curve agar lebih mulus trajectory nya 
