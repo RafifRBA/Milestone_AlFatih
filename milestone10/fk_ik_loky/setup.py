@@ -27,6 +27,7 @@ setup(
             'forward_kinematics = fk_ik_loky.forward_kinematics:main',
             'inverse_kinematics = fk_ik_loky.inverse_kinematics:main',
             'fk_all_legs = fk_ik_loky.all_leg_forward_kinematics:main',
+            'ik_all_legs = fk_ik_loky.ik_for_all_leg:main',
         ],
     },
 )
